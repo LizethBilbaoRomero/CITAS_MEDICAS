@@ -1,5 +1,4 @@
 <?php
-require_once "login.php";
 require_once "funciones.php";
 
 session_start(); 
@@ -23,12 +22,16 @@ if (isset($_POST["email"]) && isset($_POST["password"])) {
 	if ($rows) {
 		$_SESSION["id"]=$usuario[0];
 		$_SESSION["correo"]=$usuario[6];
+		$_SESSION["perfil"]=$usuario[1];
 		$_SESSION["password"]=$usuario[8];
 	}
 }
 
-if (isset($_SESSION["id"])) {
-	header("Location: admin.php");
+if (isset($_SESSION["perfil"]) and $_SESSION["perfil"]==1 ) {
+	header("Location: /administrador");
+	exit();
+}else if(isset($_SESSION["perfil"]) and $_SESSION["perfil"]==2 ){
+	header("Location: /usuario");
 	exit();
 }
 ?>
@@ -51,13 +54,6 @@ if (isset($_SESSION["id"])) {
 			<div class="card">
 				<div class="card-body">
 					<form action="index.php" method="post">
-						<div class="form-group">
-								<label for="perfil">Perfil</label>
-								<select class="form-control" id="perfil" name="perfil">
-									<option value="1">Estudiante</option>
-									<option value="2">Administrativo</option>
-								</select>
-						</div>
 						<div class="form-group">
 							<label for="email">Email address</label>
 							<input type="email" class="form-control" id="email" name="email">
