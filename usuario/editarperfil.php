@@ -27,39 +27,42 @@ require __DIR__."/configuracion.php";
       
         <div class="content-wrapper pt-3">
     
-            <div class="content">
+        <div class="content">
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col">
                             <div class="card card-primary">
                                 <div class="card-header">
-                                    <h3 class="card-title">Editar Perfil</h3>
+                                    <h3 class="card-title">Editar Usuario</h3>
                                 </div>
-                              
-                                <form role="form">
-                                    <div class="card-body">
+
+                                <div class="card-body">
+
+                                    <form id="editar">
+                                        <input type="hidden" value="<?php echo $usuario[0] ?>" name="id">
                                         <div class="form-group">
-                                            <label for="exampleInputEmail1">Nombres</label>
-                                            <input type="text" class="form-control" id="nombre" placeholder="Enter email">
+                                            <label for="nombre">Nombres</label>
+                                            <input type="text" class="form-control" id="nombre" name="nombres" value="<?php echo $usuario[3] ?>">
                                         </div>
                                         <div class="form-group">
-                                            <label for="exampleInputEmail1">Apellidos</label>
-                                            <input type="text" class="form-control" id="apellidos" placeholder="Enter email">
+                                            <label for="apellido">Apellidos</label>
+                                            <input type="text" class="form-control" id="apellido" name="apellidos" value="<?php echo $usuario[4] ?>">
                                         </div>
                                         <div class="form-group">
-                                            <label for="exampleInputEmail1">Email address</label>
-                                            <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                                            <label for="correo">Correo</label>
+                                            <input type="email" class="form-control" id="correo" name="correo" value="<?php echo $usuario[6] ?>">
                                         </div>
                                         <div class="form-group">
-                                            <label for="exampleInputPassword1">Password</label>
-                                            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                                            <label for="usuario">Usuario</label>
+                                            <input type="text" class="form-control" id="usuario" name="usuario" value="<?php echo $usuario[7] ?>">
                                         </div>
-                                    </div>
-                            
-                                    <div class="card-footer">
-                                        <button type="submit" class="btn btn-primary">Editar</button>
-                                    </div>
-                                </form>
+                                        <div class="form-group">
+                                            <label for="pass">Password</label>
+                                            <input type="password" class="form-control" id="pass" name="password">
+                                        </div>
+                                        <button type="submit" class="btn btn-primary w-100">Editar</button>
+                                    </form>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -83,6 +86,31 @@ require __DIR__."/configuracion.php";
     <script src="/dist/js/bootstrap.bundle.min.js"></script>
     <!-- AdminLTE App -->
     <script src="/dist/js/adminlte.min.js"></script>
+    <script>
+        let form = document.getElementById("editar");
+
+        form.addEventListener("submit", function(e) {
+
+            e.preventDefault();
+
+            var formulario = new FormData(document.getElementById("editar"));
+
+            var settings = {
+                "url": "/usuario/usuario_editar.php",
+                "method": "POST",
+                "timeout": 0,
+                "processData": false,
+                "mimeType": "multipart/form-data",
+                "contentType": false,
+                "data": formulario
+            };
+
+            $.ajax(settings)
+            .done(function(respuesta) {
+                alert(respuesta)
+            });
+        })
+    </script>
 </body>
 
 </html>

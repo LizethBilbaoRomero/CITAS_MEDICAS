@@ -19,14 +19,14 @@ CREATE TABLE `usuario`  (
 -- ----------------------------
 -- Records of usuario
 -- ----------------------------
-INSERT INTO `usuario` VALUES (1, 1, 'epis', 'juan', 'juan', '12345678', 'chupetinforever@gmail.com', 'juan', 'a94652aa97c7211ba8954dd15a3cf838');
+INSERT INTO `usuario` VALUES (1, 1, 'EPIS', 'rodolfo', 'riveros mitma', '1001420172', 'riverosmitma123@gmail.com', 'rodo', '202cb962ac59075b964b07152d234b70');
 INSERT INTO `usuario` VALUES (3, 2, 'EPIA', 'ana', 'gonzales', '3216547887', 'ana@gmail.com', 'ana', '276b6c4692e78d4799c12ada515bc3e4');
 INSERT INTO `usuario` VALUES (7, 2, 'EPIS', 'julia', 'julia', '654', 'julia@gmail.com', 'julia', 'c2e285cb33cecdbeb83d2189e983a8c0');
 INSERT INTO `usuario` VALUES (8, 2, 'EPIS', 'julia', 'julia', '654', 'julia@gmail.com', 'julia', 'c2e285cb33cecdbeb83d2189e983a8c0');
 INSERT INTO `usuario` VALUES (9, 2, 'EPIS', 'julia', 'julia', '654', 'julia@gmail.com', 'julia', 'c2e285cb33cecdbeb83d2189e983a8c0');
 INSERT INTO `usuario` VALUES (10, 2, 'EPIS', 'julia', 'julia', '654', 'julia@gmail.com', 'julia', 'c2e285cb33cecdbeb83d2189e983a8c0');
 INSERT INTO `usuario` VALUES (11, 2, 'EPIS', 'julia', 'julia', '654', 'julia@gmail.com', 'julia', 'c2e285cb33cecdbeb83d2189e983a8c0');
-(12, 1, 'EPIS', 'rodolfo', 'riveros mitma', '1001420172', 'riverosmitma123@gmail.com', 'rodo', '202cb962ac59075b964b07152d234b70');
+
 -- ----------------------------
 -- Table structure for cita
 -- ----------------------------

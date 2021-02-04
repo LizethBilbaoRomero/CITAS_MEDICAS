@@ -1,6 +1,31 @@
 <?php
 require __DIR__ . "/configuracion.php";
+
+session_start();
+
+if (count($_POST)>0) {
+	$conexion = new mysqli($hn, $un, $pw, $db, $port);
+	if ($conexion->connect_error) {
+		die("Fatal Error");
+	}
+
+	$especialidad = get_post($conexion, "especialidad");
+	$fecha = get_post($conexion, "fecha");
+	$hora = get_post($conexion, "hora");
+	$emergencia = get_post($conexion, "emergencia");
+	
+
+	$query = "INSERT INTO `Cita`( `especialidad`, `fecha`, `hora`, `emergencia`) 
+	VALUES ( '$especialidad', '$fecha', '$hora', '$emergencia')";
+	$result = $conexion->query($query);
+	if ($result) {
+		echo "<script>alert('se creó')</script>";
+	}else{
+		echo "<script>alert('falló')</script>";
+	}
+}
 ?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -52,7 +77,7 @@ require __DIR__ . "/configuracion.php";
                                             <label>Fecha:</label>
 
                                             <div class="input-group date">
-                                                <input type="date" class="form-control pull-right" id="datepicker">
+                                                <input type="date" class="form-control pull-right" id="fecha">
                                             </div>
 
                                         </div>

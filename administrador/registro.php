@@ -49,41 +49,16 @@ require __DIR__."/configuracion.php";
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>pepe quispe quipe</td>
-                                                <td>epis</td>
-                                                <td>traumatologia</td>
-                                                <td>12/12/20</td>
-                                                <td>07:25</td>
-                                            </tr>
-                                            <tr>
-                                            <tr>
-                                                <td>2</td>
-                                                <td>pepe quispe quipe</td>
-                                                <td>epis</td>
-                                                <td>traumatologia</td>
-                                                <td>12/12/20</td>
-                                                <td>07:25</td>
-                                            </tr>
-                                            <tr>
-                                                <td>3</td>
-                                                <td>pepe quispe quipe</td>
-                                                <td>epis</td>
-                                                <td>traumatologia</td>
-                                                <td>12/12/20</td>
-                                                <td>07:25</td>
-                                            </tr>
-                                            <tr>
-                                                <td>4</td>
-                                                <td>pepe quispe quipe</td>
-                                                <td>epis</td>
-                                                <td>traumatologia</td>
-                                                <td>12/12/20</td>
-                                                <td>07:25</td>
-                                            </tr>
-                                        </tbody>
-                                        <tfoot>
+                                            <?php while ($fila = $resultado->fetch_array(MYSQLI_NUM)) : ?>
+                                                <tr>
+                                                    <td><?php echo $fila[0];?></td>
+                                                    <td><?php echo $fila[3];?> <?php echo $fila[4];?></td>
+                                                    <td><?php echo $fila[2];?></td>
+                                                    <td><?php echo $fila[5];?></td>
+                                                    <td><?php echo $fila[6];?></td>
+                                                    <td><?php echo $fila[7];?></td>
+                                                </tr>
+                                            <?php endwhile; ?>
                                             <tr>
                                                 <th>N°</th>
                                                 <th>Nombre y Apellidos</th>

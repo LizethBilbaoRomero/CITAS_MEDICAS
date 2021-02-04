@@ -1,5 +1,17 @@
 <?php
 require __DIR__ . "/configuracion.php";
+$conexion = conexion();
+
+$resultado = $conexion->query("SELECT
+cita.*,
+usuario.nombres, 
+usuario.apellidos
+FROM
+usuario
+INNER JOIN
+cita
+ON 
+    usuario.id = cita.usuario_id");
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -49,14 +61,16 @@ require __DIR__ . "/configuracion.php";
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>pepe quispe quipe</td>
-                                                <td>epis</td>
-                                                <td>traumatologia</td>
-                                                <td>12/12/20</td>
-                                                <td>07:25</td>
-                                            </tr>
+                                                <?php while ($fila = $resultado->fetch_array(MYSQLI_NUM)) : ?>
+                                                        <tr>
+                                                            <td><?php echo $fila[0];?></td>
+                                                            <td><?php echo $fila[3];?> <?php echo $fila[4];?></td>
+                                                            <td><?php echo $fila[2];?></td>
+                                                            <td><?php echo $fila[1];?></td>
+                                                            <td><?php echo $fila[2];?></td>
+                                                            <td><?php echo $fila[7];?></td>
+                                                        </tr>
+                                                <?php endwhile; ?>
                                             <tr>
                                                 <th>N°</th>
                                                 <th>Nombre y Apellidos</th>
